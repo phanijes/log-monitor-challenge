@@ -11,15 +11,14 @@ To find more about the challenge look into "requirements" folder.
 - `sample_output.txt`: Test output when executed the script.
 - `README.md`: This documentation.
 
-
 ## Features
 
 - Parses CSV-formatted log entries.
 - Tracks the start and end times of individual jobs identified by their Process ID (PID).
 - Calculates the total duration for each job.
 - Generates a report with the following alerts:
-    - **WARNING**: If a job takes longer than 5 minutes.
-    - **ERROR**: If a job takes longer than 10 minutes.
+  - **WARNING**: If a job takes longer than 5 minutes.
+  - **ERROR**: If a job takes longer than 10 minutes.
 - Handles common log file issues such as missing START/END events or malformed lines.
 
 ## Log Structure
@@ -36,20 +35,27 @@ Each line in the `logs.log` file is expected to be in the following CSV format:
 ## How to Run
 
 1. Clone or download the project files.
-2. Ensure Python 3 is installed: ````bash python3 --version ```
-3. Make the shell script (`run.sh`) executable: ````bash chmod +x run.sh ```
+2. Ensure Python 3 is installed: `python3 --version`
+3. Make the shell script (`run.sh`) executable: `chmod +x run.sh`
 4. Run any of the below commands to execute the script
+
    ```bash
    bash run.sh
    ```
+
+   OR
+
    ```bash
    python log_monitor.py logs.log
    ```
 
 ## Example Output
 
-The script will print the report directly to the console. Here's an example of what you might see:
+The script will print the report directly to the console. You can find complete tested output in `sample_output.txt`
 
+Here's an example of what you might see:
+
+```bash
 2025-06-30 20:42:04 - INFO - --- Log Monitoring Report ---
 2025-06-30 20:42:04 - ERROR - Job 'scheduled task 051' (PID: 39547) took 11.48 minutes
 2025-06-30 20:42:04 - ERROR - Job 'scheduled task 515' (PID: 45135) took 12.38 minutes
@@ -59,4 +65,4 @@ The script will print the report directly to the console. Here's an example of w
 2025-06-30 20:42:04 - WARNING - Job 'scheduled task 811' (PID: 50295) took 6.58 minutes
 2025-06-30 20:42:04 - WARNING - Job 'scheduled task 294' (PID: 27222) took 6.13 minutes
 ----
-You can find sample output in `sample_output.txt`
+```
